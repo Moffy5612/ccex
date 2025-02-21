@@ -65,8 +65,8 @@ public class FluxControllerPeripheral implements IPeripheral{
     }
 
     @LuaFunction
-    public Map<String, Object> getConnections(IComputerAccess computer, IArguments arguments) throws LuaException{
-        Map<String, Object> connections = new HashMap<>();
+    public List<Object> getConnections(IComputerAccess computer, IArguments arguments) throws LuaException{
+        List<Object> connections = new ArrayList<>();
         
         FluxNetwork network = getFluxNetwork();
 
@@ -85,6 +85,7 @@ public class FluxControllerPeripheral implements IPeripheral{
                 connectionInfo.put("pos", connectionPos);
 
                 connectionInfo.put("type", device.getDeviceType().name());
+                connections.add(connectionInfo);
             }
         }
 
