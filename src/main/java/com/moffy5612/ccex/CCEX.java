@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod(CCEXRefs.MOD_ID)
 public class CCEX {
-    protected static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public static final CCEXFluxNetworksHandler FLUX_NETWORKS_HANDLER = new CCEXFluxNetworksHandler();
 
