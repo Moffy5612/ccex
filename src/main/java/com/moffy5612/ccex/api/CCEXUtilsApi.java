@@ -12,6 +12,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import com.moffy5612.ccex.CCEX;
 
 import dan200.computercraft.api.lua.IComputerSystem;
 import dan200.computercraft.api.lua.ILuaAPI;
@@ -23,7 +24,7 @@ public class CCEXUtilsApi implements ILuaAPI{
 
     private String getJSONValue(Object value){
         if(value instanceof String){
-            return "\"" + value + "\"";
+            return "\"" + value.toString().replace("\"", "\\\"") + "\"";
         } else {
             return value.toString();
         }
