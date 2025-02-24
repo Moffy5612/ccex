@@ -35,6 +35,7 @@ public class CCEXUtilsApi implements ILuaAPI{
         boolean isList = true;
         for(Entry<?, ?> o : table.entrySet()){
             if(o.getValue() instanceof Map){
+                isList = false;
                 values.add("\""+o.getKey()+"\":"+serialize(((Map<?,?>)o.getValue())));
             } else {
                 if(!(o.getKey() instanceof Double)){
@@ -43,7 +44,7 @@ public class CCEXUtilsApi implements ILuaAPI{
                 values.add("\""+o.getKey()+"\":"+getJSONValue(o.getValue()));                
             }
         }
-        if(isList){
+        if(isList && values.size() > 0){
             List<String> listValues = new ArrayList<>();
             for(Object o: table.values()){
                 if(o instanceof Map){
